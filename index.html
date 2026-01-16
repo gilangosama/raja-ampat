@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonderful Raja Ampat - Official Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        ocean: '#0891b2',
+                        sand: '#fffbeb',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-pattern {
+            background-color: #0f172a;
+            background-image: url("https://images.unsplash.com/photo-1570784332176-1efe66372bf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <nav
+        class="fixed w-full z-50 top-0 transition-all duration-300 py-4 px-6 backdrop-blur-md bg-white/80 border-b border-white/50 shadow-sm">
+        <div class="container mx-auto flex justify-between items-center">
+
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="flex flex-col">
+                    <span
+                        class="text-xl md:text-2xl font-serif font-bold text-slate-800 tracking-tight group-hover:text-ocean transition">Raja
+                        Ampat<span class="text-orange-500">.</span></span>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-sans hidden sm:block">West
+                        Papua</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#panduan"
+                    class="text-sm font-semibold text-gray-600 hover:text-orange-500 transition relative group">
+                    <span data-i18n="nav_guide">Panduan</span>
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#explore"
+                    class="text-sm font-semibold text-gray-600 hover:text-orange-500 transition relative group">
+                    <span data-i18n="nav_explore">Jelajah</span>
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+
+                <select id="langSwitcher" onchange="changeLanguage(this.value)" class="bg-transparent text-sm font-bold text-gray-600 border border-gray-300 rounded-md py-1 px-2 focus:outline-none focus:border-ocean">
+                    <option value="id">ID</option>
+                    <option value="en">EN</option>
+                </select>
+
+                <a href="#explore"
+                    class="px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-bold rounded-full hover:shadow-lg hover:shadow-cyan-500/40 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <span data-i18n="nav_cta">Cari Penginapan</span>
+                </a>
+            </div>
+
+            <div class="md:hidden flex items-center gap-4">
+                 <select onchange="changeLanguage(this.value)" class="bg-transparent text-sm font-bold text-gray-600 border-none focus:outline-none">
+                    <option value="id">ID</option>
+                    <option value="en">EN</option>
+                </select>
+                <button class="p-2 text-gray-600 hover:text-ocean transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header
+        class="relative h-screen flex flex-col justify-center items-center text-center text-white px-4 overflow-hidden">
+
+        <div class="absolute inset-0 z-0">
+            <img src="img/header.png" alt="Raja Ampat Aerial View"
+                class="w-full h-full object-cover object-center scale-110" style="filter: brightness(0.85);">
+        </div>
+
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/30 z-10"></div>
+
+        <div class="relative z-20 max-w-5xl space-y-6 mt-16 animate-fade-in-up">
+
+            <div class="flex items-center justify-center gap-4 mb-2">
+                <span class="h-[1px] w-12 bg-orange-400"></span>
+                <span class="uppercase tracking-[0.4em] text-xs md:text-sm font-bold text-orange-400 drop-shadow-md">The
+                    Crown Jewel of Papua</span>
+                <span class="h-[1px] w-12 bg-orange-400"></span>
+            </div>
+
+            <h1 class="text-5xl md:text-8xl font-serif font-bold leading-tight drop-shadow-xl">
+                <span data-i18n="hero_title_1">Surga Tersembunyi</span> <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-white to-teal-200">
+                    <span data-i18n="hero_title_2">di Ujung Timur</span>
+                </span>
+            </h1>
+
+            <p class="text-lg md:text-2xl text-gray-100 max-w-2xl mx-auto leading-relaxed font-light drop-shadow-md">
+                <span data-i18n="hero_desc_1">Jelajahi jantung Segitiga Karang Dunia. Temukan</span>
+                <span class="font-semibold text-cyan-300" data-i18n="hero_desc_bold">Homestay Lokal</span> 
+                <span data-i18n="hero_desc_2">autentik dan rasakan keramahan hangat masyarakat Papua.</span>
+            </p>
+
+            <div class="pt-10 flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#explore"
+                    class="group relative px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold rounded-full hover:bg-white hover:text-ocean transition-all duration-300 shadow-xl inline-flex items-center gap-3 overflow-hidden">
+                    <span class="relative z-10" data-i18n="hero_cta">Mulai Petualangan</span>
+                    <svg class="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+
+                    <div
+                        class="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 group-hover:scale-100 group-hover:bg-white/100">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 z-20 animate-bounce hidden md:block">
+            <a href="#panduan" class="text-white/70 hover:text-white transition flex flex-col items-center gap-2">
+                <span class="text-[10px] uppercase tracking-widest">Scroll Down</span>
+                <svg class="w-6 h-10 border-2 border-white/50 rounded-full p-1" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path class="animate-pulse" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 5v4"></path>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <section id="panduan" class="py-24 px-4 container mx-auto relative overflow-hidden">
+
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-cyan-50 rounded-full blur-3xl opacity-50 z-0">
+        </div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-50 z-0">
+        </div>
+
+        <div class="text-center mb-16 relative z-10">
+            <span class="text-ocean font-bold tracking-widest uppercase text-xs mb-2 block">Travel Guide</span>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-slate-900">
+                <span data-i18n="guide_title_1">Jelajahi Setiap</span> <span
+                    class="italic text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600" data-i18n="guide_title_2">Sudut
+                    Surga</span>
+            </h2>
+            <p class="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed font-light" data-i18n="guide_subtitle">
+                Raja Ampat terdiri dari ribuan pulau. Tentukan basis petualanganmu sesuai gaya liburan yang kamu
+                impikan.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 relative z-10">
+
+            <div
+                class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col">
+                <div class="relative h-64 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                    <img src="img/waisai.png" alt="Waisai City"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <span class="absolute bottom-4 left-4 text-white font-bold z-20 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                            </path>
+                        </svg>
+                        <span data-i18n="card1_badge">Pusat Kota</span>
+                    </span>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <h3
+                        class="text-2xl font-serif font-bold text-slate-800 mb-3 group-hover:text-ocean transition-colors" data-i18n="card1_title">
+                        Waisai & Transit</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed text-sm flex-grow" data-i18n="card1_desc">
+                        Gerbang utama masuk Raja Ampat. Lokasi strategis untuk transit, belanja logistik murah, dan
+                        akses mudah ke bandara Marinda.
+                    </p>
+                    <button onclick="smartFilter('Waisai')"
+                        class="w-full py-3 rounded-xl border border-gray-200 font-semibold text-gray-600 group-hover:bg-ocean group-hover:text-white group-hover:border-ocean transition-all duration-300 flex justify-center items-center gap-2">
+                        <span data-i18n="card1_btn">Eksplor Waisai</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div
+                class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col transform md:-translate-y-4">
+                <div class="relative h-64 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                    <img src="img/piaynemo.png" alt="Piaynemo View"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <span class="absolute bottom-4 left-4 text-white font-bold z-20 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                            </path>
+                        </svg>
+                        <span data-i18n="card2_badge">Ikon Wisata</span>
+                    </span>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <h3
+                        class="text-2xl font-serif font-bold text-slate-800 mb-3 group-hover:text-ocean transition-colors" data-i18n="card2_title">
+                        Piaynemo & Fam</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed text-sm flex-grow" data-i18n="card2_desc">
+                        Spot foto wajib. Gugusan pulau karst di atas air turkis yang memukau. Ideal untuk pencari
+                        pemandangan kelas dunia.
+                    </p>
+                    <button onclick="smartFilter('Piaynemo')"
+                        class="w-full py-3 rounded-xl bg-ocean text-white font-semibold shadow-lg shadow-cyan-500/30 hover:bg-cyan-700 transition-all duration-300 flex justify-center items-center gap-2">
+                        <span data-i18n="card2_btn">Lihat Piaynemo</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div
+                class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col">
+                <div class="relative h-64 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop"
+                        alt="Underwater Raja Ampat"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <span class="absolute bottom-4 left-4 text-white font-bold z-20 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                        <span data-i18n="card3_badge">Bahari & Budaya</span>
+                    </span>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <h3
+                        class="text-2xl font-serif font-bold text-slate-800 mb-3 group-hover:text-ocean transition-colors" data-i18n="card3_title">
+                        Arborek & Kri</h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed text-sm flex-grow" data-i18n="card3_desc">
+                        Surga snorkeling tepat di bawah dermaga homestay. Rasakan keramahan warga lokal desa wisata yang
+                        hangat.
+                    </p>
+                    <button onclick="smartFilter('Arborek')"
+                        class="w-full py-3 rounded-xl border border-gray-200 font-semibold text-gray-600 group-hover:bg-ocean group-hover:text-white group-hover:border-ocean transition-all duration-300 flex justify-center items-center gap-2">
+                        <span data-i18n="card3_btn">Cek Homestay</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="explore" class="bg-slate-50 py-24 px-4 relative border-t border-gray-200">
+
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent">
+        </div>
+
+        <div class="container mx-auto">
+
+            <div class="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16">
+
+                <div class="text-left w-full lg:w-auto">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 leading-tight">
+                        <span data-i18n="explore_title_1">Temukan</span> <span class="text-ocean" data-i18n="explore_title_2">Destinasimu</span>
+                    </h2>
+                    <div class="mt-3 flex items-center gap-3 text-sm text-gray-500">
+                        <span
+                            class="bg-white border border-gray-200 px-3 py-1 rounded-full font-semibold shadow-sm text-ocean flex items-center gap-2">
+                            <span id="count-data" class="font-bold text-lg">0</span> <span data-i18n="location_count">Lokasi</span>
+                        </span>
+                        <span data-i18n="location_ready">siap untuk dieksplorasi</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-5 w-full lg:w-auto">
+
+                    <div
+                        class="bg-white p-1.5 rounded-full shadow-sm border border-gray-200 flex justify-between md:justify-start overflow-x-auto">
+                        <button onclick="filterCategory('all')"
+                            class="filter-btn active px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 bg-ocean text-white shadow-md">
+                            <span data-i18n="filter_all">Semua</span>
+                        </button>
+                        <button onclick="filterCategory('penginapan')"
+                            class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold text-gray-500 hover:text-ocean hover:bg-cyan-50 transition-all duration-300">
+                            <span data-i18n="filter_stay">Homestay</span>
+                        </button>
+                        <button onclick="filterCategory('wisata')"
+                            class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold text-gray-500 hover:text-ocean hover:bg-cyan-50 transition-all duration-300">
+                            <span data-i18n="filter_tour">Wisata</span>
+                        </button>
+                    </div>
+
+                    <div class="relative w-full md:w-72 group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400 group-focus-within:text-ocean transition-colors"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <input type="text" id="searchInput"
+                            class="pl-12 pr-6 py-3 w-full rounded-full border border-gray-200 bg-white text-gray-700 font-medium focus:outline-none focus:ring-2 focus:ring-ocean/50 focus:border-ocean transition-all shadow-sm placeholder-gray-400"
+                            placeholder="Cari pulau, homestay..." data-i18n-placeholder="search_placeholder">
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="content-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]">
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white py-12 px-4 border-t border-slate-800">
+        <div class="container mx-auto text-center space-y-6">
+            <h2 class="text-2xl font-serif font-bold text-cyan-400">Raja Ampat.</h2>
+            <div class="flex justify-center gap-6 text-sm text-gray-400">
+                <a href="#" class="hover:text-white" data-i18n="footer_about">Tentang Kami</a>
+                <a href="#" class="hover:text-white" data-i18n="footer_disclaimer">Disclaimer</a>
+                <a href="#" class="hover:text-white" data-i18n="footer_contact">Kontak Developer</a>
+            </div>
+            <p class="text-xs text-gray-600" data-i18n="footer_copy">© 2026 Raja Ampat Independent Guide. Data dikurasi manual & independen.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- TRANSLATION DATA ---
+        let currentLang = 'id';
+        
+        const translations = {
+            id: {
+                nav_guide: "Panduan",
+                nav_explore: "Jelajah",
+                nav_cta: "Cari Penginapan",
+                hero_title_1: "Surga Tersembunyi",
+                hero_title_2: "di Ujung Timur",
+                hero_desc_1: "Jelajahi jantung Segitiga Karang Dunia. Temukan",
+                hero_desc_bold: "Homestay Lokal",
+                hero_desc_2: "autentik dan rasakan keramahan hangat masyarakat Papua.",
+                hero_cta: "Mulai Petualangan",
+                guide_title_1: "Jelajahi Setiap",
+                guide_title_2: "Sudut Surga",
+                guide_subtitle: "Raja Ampat terdiri dari ribuan pulau. Tentukan basis petualanganmu sesuai gaya liburan yang kamu impikan.",
+                card1_badge: "Pusat Kota",
+                card1_title: "Waisai & Transit",
+                card1_desc: "Gerbang utama masuk Raja Ampat. Lokasi strategis untuk transit, belanja logistik murah, dan akses mudah ke bandara Marinda.",
+                card1_btn: "Eksplor Waisai",
+                card2_badge: "Ikon Wisata",
+                card2_title: "Piaynemo & Fam",
+                card2_desc: "Spot foto wajib. Gugusan pulau karst di atas air turkis yang memukau. Ideal untuk pencari pemandangan kelas dunia.",
+                card2_btn: "Lihat Piaynemo",
+                card3_badge: "Bahari & Budaya",
+                card3_title: "Arborek & Kri",
+                card3_desc: "Surga snorkeling tepat di bawah dermaga homestay. Rasakan keramahan warga lokal desa wisata yang hangat.",
+                card3_btn: "Cek Homestay",
+                explore_title_1: "Temukan",
+                explore_title_2: "Destinasimu",
+                location_count: "Lokasi",
+                location_ready: "siap untuk dieksplorasi",
+                filter_all: "Semua",
+                filter_stay: "Homestay",
+                filter_tour: "Wisata",
+                search_placeholder: "Cari pulau, homestay...",
+                footer_about: "Tentang Kami",
+                footer_disclaimer: "Disclaimer",
+                footer_contact: "Kontak Developer",
+                footer_copy: "© 2026 Raja Ampat Independent Guide. Data dikurasi manual & independen.",
+                txt_start_from: "Mulai dari",
+                txt_booking: "Booking",
+                txt_map: "Lihat Peta",
+                txt_ticket: "Tiket Masuk",
+                txt_no_data: "Maaf, destinasi yang Anda cari belum tersedia.",
+                txt_reset: "Reset Filter"
+            },
+            en: {
+                nav_guide: "Guide",
+                nav_explore: "Explore",
+                nav_cta: "Find Stays",
+                hero_title_1: "Hidden Paradise",
+                hero_title_2: "in the Far East",
+                hero_desc_1: "Explore the heart of the Coral Triangle. Discover authentic",
+                hero_desc_bold: "Local Homestays",
+                hero_desc_2: "and experience the warm hospitality of Papua.",
+                hero_cta: "Start Adventure",
+                guide_title_1: "Explore Every",
+                guide_title_2: "Corner of Paradise",
+                guide_subtitle: "Raja Ampat consists of thousands of islands. Choose your adventure base according to your dream holiday style.",
+                card1_badge: "City Center",
+                card1_title: "Waisai & Transit",
+                card1_desc: "Main gateway to Raja Ampat. Strategic location for transit, affordable logistics shopping, and easy access to Marinda airport.",
+                card1_btn: "Explore Waisai",
+                card2_badge: "Iconic Spots",
+                card2_title: "Piaynemo & Fam",
+                card2_desc: "Must-visit photo spots. Karst island clusters on turquoise waters. Ideal for world-class view seekers.",
+                card2_btn: "See Piaynemo",
+                card3_badge: "Marine & Culture",
+                card3_title: "Arborek & Kri",
+                card3_desc: "Snorkeling paradise right under the homestay pier. Feel the warm hospitality of the local tourist village.",
+                card3_btn: "Check Homestays",
+                explore_title_1: "Discover",
+                explore_title_2: "Your Destination",
+                location_count: "Locations",
+                location_ready: "ready to explore",
+                filter_all: "All",
+                filter_stay: "Stays",
+                filter_tour: "Tours",
+                search_placeholder: "Search islands, homestays...",
+                footer_about: "About Us",
+                footer_disclaimer: "Disclaimer",
+                footer_contact: "Developer Contact",
+                footer_copy: "© 2026 Raja Ampat Independent Guide. Manually curated & independent.",
+                txt_start_from: "Starts from",
+                txt_booking: "Book Now",
+                txt_map: "View Map",
+                txt_ticket: "Entrance Fee",
+                txt_no_data: "Sorry, the destination you are looking for is not available yet.",
+                txt_reset: "Reset Filter"
+            }
+        };
+
+        const dataset = [
+            {
+                "id": 1,
+                "kategori": "penginapan",
+                "nama": "Arborek Homestay",
+                "lokasi": "Pulau Arborek",
+                "harga_mulai": 400000,
+                "deskripsi": "Homestay ramah di desa wisata Arborek, terkenal dengan keramahan penduduk dan spot snorkeling di bawah dermaga.",
+                "deskripsi_en": "Friendly homestay in Arborek tourist village, famous for local hospitality and snorkeling spots right under the pier.",
+                "fasilitas": ["Makan 3x", "Listrik Malam", "Tepi Pantai"],
+                "fasilitas_en": ["3 Meals", "Night Electricity", "Beachfront"],
+                "kontak": "6285244407069",
+                "url": "https://www.google.com/maps/search/Arborek+Homestay+Raja+Ampat",
+                "rating": 4.5
+            },
+            {
+                "id": 2,
+                "kategori": "penginapan",
+                "nama": "Yenros Homestay",
+                "lokasi": "Pulau Gam",
+                "harga_mulai": 725000,
+                "deskripsi": "Penginapan tenang di Desa Yenbeser, dekat habitat Cendrawasih dan memiliki pemandangan laut yang asri.",
+                "deskripsi_en": "Quiet accommodation in Yenbeser Village, near the Bird of Paradise habitat and featuring beautiful sea views.",
+                "fasilitas": ["Sarapan", "Kipas Angin", "Kamar Mandi Bersama"],
+                "fasilitas_en": ["Breakfast", "Fan", "Shared Bathroom"],
+                "kontak": "6281240779200",
+                "url": "https://www.google.com/maps/search/Arborek+Homestay+Raja+Ampat",
+                "rating": 4.3
+            },
+            {
+                "id": 3,
+                "kategori": "penginapan",
+                "nama": "Methos Homestay",
+                "lokasi": "Raja Ampat (Area Batanta)",
+                "harga_mulai": 800000,
+                "deskripsi": "Bungalow di atas air dengan akses langsung ke terumbu karang yang indah. Cocok untuk snorkeling dari teras.",
+                "deskripsi_en": "Overwater bungalow with direct access to beautiful coral reefs. Perfect for snorkeling from the terrace.",
+                "fasilitas": ["Overwater Bungalow", "Makan 3x", "Private Reef"],
+                "fasilitas_en": ["Overwater Bungalow", "3 Meals", "Private Reef"],
+                "kontak": "628123456789",
+                "url": "https://www.google.com/maps/search/Arborek+Homestay+Raja+Ampat",
+                "rating": 4.8
+            },
+            {
+                "id": 14,
+                "kategori": "penginapan",
+                "nama": "Piaynemo Homestay",
+                "lokasi": "Pulau Piaynemo",
+                "harga_mulai": 550000,
+                "deskripsi": "Menginap tepat di ikon Raja Ampat. Pemandangan bukit karst langsung dari jendela.",
+                "deskripsi_en": "Stay right at the icon of Raja Ampat. Karst hill views directly from your window.",
+                "fasilitas": ["View Terbaik", "Makan 3x", "Teras"],
+                "fasilitas_en": ["Best View", "3 Meals", "Terrace"],
+                "kontak": "62811223344",
+                "url": "https://www.stayrajaampat.com/",
+                "rating": 4.7
+            },
+            {
+                "id": 11,
+                "kategori": "penginapan",
+                "nama": "Kasuari Valley Beach Resort",
+                "lokasi": "Waisai",
+                "harga_mulai": 680000,
+                "deskripsi": "Resort terjangkau di Waisai dengan konsep cottage taman. Dekat bandara Marinda.",
+                "deskripsi_en": "Affordable resort in Waisai with a garden cottage concept. Close to Marinda airport.",
+                "fasilitas": ["Taman", "AC", "Dekat Bandara"],
+                "fasilitas_en": ["Garden", "AC", "Near Airport"],
+                "kontak": "Cek Traveloka",
+                "url": "https://www.google.com/maps/search/Arborek+Homestay+Raja+Ampat",
+                "rating": 4.1
+            },
+            {
+                "id": 16,
+                "kategori": "wisata",
+                "nama": "Wayag",
+                "lokasi": "Waigeo Barat",
+                "harga_mulai": 0,
+                "deskripsi": "Ikon utama Raja Ampat. Gugusan pulau karst di tengah laut biru yang wajib didaki untuk foto ikonik.",
+                "deskripsi_en": "The main icon of Raja Ampat. Karst island clusters in the blue sea that must be climbed for iconic photos.",
+                "fasilitas": ["Trekking", "Photo Spot", "Snorkeling"],
+                "fasilitas_en": ["Trekking", "Photo Spot", "Snorkeling"],
+                "kontak": "-",
+                "url": "https://www.google.com/maps/search/Arborek+Homestay+Raja+Ampat",
+                "rating": 5.0
+            },
+            {
+                "id": 17,
+                "kategori": "wisata",
+                "nama": "Piaynemo View",
+                "lokasi": "Pulau Fam",
+                "harga_mulai": 0,
+                "deskripsi": "Sering disebut 'Wayag Kecil'. Memiliki tangga kayu yang memudahkan wisatawan mencapai puncak view point.",
+                "deskripsi_en": "Often called 'Little Wayag'. Features wooden stairs that make it easy for tourists to reach the peak view point.",
+                "fasilitas": ["Tangga Kayu", "Warung Kelapa Muda", "Toilet"],
+                "fasilitas_en": ["Wooden Stairs", "Coconut Stall", "Toilet"],
+                "kontak": "-",
+                "url": "https://www.google.com/maps/search/Arborek+Homestay+Raja+Ampat",
+                "rating": 4.9
+            },
+            {
+                "id": 19,
+                "kategori": "wisata",
+                "nama": "Desa Wisata Arborek",
+                "lokasi": "Pulau Arborek",
+                "harga_mulai": 0,
+                "deskripsi": "Desa paling bersih dan rapi. Anak-anak kecil sering menari menyambut tamu. Bawah dermaganya penuh ikan.",
+                "deskripsi_en": "The cleanest and neatest village. Small children often dance to welcome guests. Under the pier is full of fish.",
+                "fasilitas": ["Toko Souvenir", "Warung Makan", "Sewa Alat Snorkling"],
+                "fasilitas_en": ["Souvenir Shop", "Food Stall", "Snorkel Rental"],
+                "kontak": "-",
+                "url": "https://jadesta.kemenparekraf.go.id/desa/arborek",
+                "rating": 4.8
+            },
+            {
+                "id": 20,
+                "kategori": "wisata",
+                "nama": "Pasir Timbul",
+                "lokasi": "Dekat Pulau Mansuar",
+                "harga_mulai": 0,
+                "deskripsi": "Hamparan pasir putih di tengah laut yang hanya muncul saat air surut. Airnya sebening kristal.",
+                "deskripsi_en": "A stretch of white sand in the middle of the sea that only appears at low tide. The water is crystal clear.",
+                "fasilitas": ["Photo Spot", "Berenang Santai"],
+                "fasilitas_en": ["Photo Spot", "Relaxing Swim"],
+                "kontak": "-",
+                "url": "https://www.google.com/maps/search/Arborek+Homestay+Raja+Ampat",
+                "rating": 4.8
+            }
+        ];
+
+        // --- RENDER ENGINE ---
+
+        const formatRupiah = (number) => {
+            if (number === 0 || isNaN(number)) return translations[currentLang].txt_ticket;
+            return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(number);
+        };
+
+        const imageMap = {
+            "Arborek Homestay": "img/arborekstay.png",
+            "Yenros Homestay": "img/yenros.png",
+            "Methos Homestay": "img/methos.png",
+            "Piaynemo Homestay": "img/pianemostay.png",
+            "Kasuari Valley Beach Resort": "img/kasuari.png",
+            "Wayag": "img/wayag.png",
+            "Piaynemo View": "img/pianemoview.png",
+            "Desa Wisata Arborek": "img/desa.png",
+            "Pasir Timbul": "img/pasir.png"
+        };
+
+        const renderCards = (data) => {
+            const container = document.getElementById('content-grid');
+            const counter = document.getElementById('count-data');
+            const t = translations[currentLang];
+
+            container.innerHTML = '';
+            counter.innerText = data.length;
+
+            if (data.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-20">
+                        <p class="text-gray-400 text-lg">${t.txt_no_data}</p>
+                        <button onclick="filterCategory('all')" class="mt-4 text-ocean font-semibold hover:underline">${t.txt_reset}</button>
+                    </div>`;
+                return;
+            }
+
+            data.forEach(item => {
+                const badgeColor = item.kategori === 'penginapan' ? 'bg-blue-50 text-blue-700 border-blue-100' : 'bg-emerald-50 text-emerald-700 border-emerald-100';
+                const imageUrl = imageMap[item.nama] || `https://placehold.co/600x400/0891b2/ffffff?text=${encodeURIComponent(item.nama)}`;
+                
+                // Logic Bahasa untuk Konten Dinamis
+                const deskripsi = currentLang === 'en' && item.deskripsi_en ? item.deskripsi_en : item.deskripsi;
+                const fasilitas = currentLang === 'en' && item.fasilitas_en ? item.fasilitas_en : item.fasilitas;
+                // Translate Kategori Display
+                let kategoriDisplay = item.kategori;
+                if(currentLang === 'en') {
+                    kategoriDisplay = item.kategori === 'penginapan' ? 'Homestay' : 'Tour';
+                }
+
+                const cardHTML = `
+                    <div class="bg-white rounded-2xl overflow-hidden card-hover border border-gray-100 flex flex-col h-full group">
+                        
+                        <a href="${item.url}" target="_blank" class="relative h-56 overflow-hidden block cursor-pointer">
+                            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition z-10"></div>
+                            <img src="${imageUrl}" alt="${item.nama}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            
+                            <span class="absolute top-4 left-4 ${badgeColor} border text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm z-20">
+                                ${kategoriDisplay}
+                            </span>
+
+                            <div class="absolute bottom-4 right-4 z-20 bg-white/90 backdrop-blur px-2 py-1 rounded-lg text-xs font-bold text-orange-500 shadow-sm flex items-center gap-1">
+                                <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                ${item.rating}
+                            </div>
+                        </a>
+
+                        <div class="p-6 flex flex-col flex-grow relative">
+                            <div class="flex justify-between items-start mb-2">
+                                <a href="${item.url}" target="_blank" class="group-hover:text-ocean transition duration-300">
+                                    <h3 class="text-xl font-bold text-slate-800 leading-tight">${item.nama}</h3>
+                                </a>
+                            </div>
+
+                            <p class="text-xs font-semibold text-gray-400 mb-4 flex items-center uppercase tracking-wide">
+                                <svg class="w-4 h-4 mr-1 text-ocean" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                ${item.lokasi}
+                            </p>
+                            
+                            <p class="text-gray-500 text-sm mb-6 line-clamp-3 leading-relaxed flex-grow">${deskripsi}</p>
+                            
+                            <div class="flex gap-2 mb-6 flex-wrap">
+                                ${fasilitas ? fasilitas.slice(0, 2).map(fas =>
+                    `<span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded border border-slate-200 font-medium">${fas}</span>`
+                ).join('') : ''}
+                                ${fasilitas.length > 2 ? `<span class="text-[10px] text-slate-400 px-1 py-1">+${fasilitas.length - 2}</span>` : ''}
+                            </div>
+
+                            <div class="pt-4 border-t border-dashed border-gray-200 flex items-center justify-between mt-auto">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-medium">${t.txt_start_from}</p>
+                                    <p class="text-lg font-bold text-ocean">${formatRupiah(item.harga_mulai)}</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a href="${item.url}" target="_blank" class="p-2 bg-gray-50 text-gray-600 rounded-lg hover:bg-gray-100 transition border border-gray-200" title="${t.txt_map}">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                    </a>
+                                    ${item.kontak !== '-' ? `
+                                    <a href="https://wa.me/${item.kontak.replace(/\D/g, '')}" target="_blank" 
+                                       class="bg-ocean hover:bg-cyan-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition shadow-lg shadow-cyan-500/30 flex items-center gap-2">
+                                       ${t.txt_booking}
+                                    </a>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        };
+
+        // --- FILTER LOGIC ---
+        let currentCategory = 'all';
+
+        const filterCategory = (category) => {
+            currentCategory = category;
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-ocean', 'text-white');
+                btn.classList.add('text-gray-500', 'hover:bg-gray-50');
+            });
+            event.currentTarget.classList.remove('text-gray-500', 'hover:bg-gray-50');
+            event.currentTarget.classList.add('bg-ocean', 'text-white');
+
+            applyFilters();
+        };
+
+        const smartFilter = (keyword) => {
+            document.getElementById('explore').scrollIntoView({ behavior: 'smooth' });
+            const searchInput = document.getElementById('searchInput');
+            searchInput.value = keyword;
+            applyFilters();
+        };
+
+        const applyFilters = () => {
+            const searchKeyword = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = dataset.filter(item => {
+                const matchCategory = currentCategory === 'all' || item.kategori === currentCategory;
+                const matchSearch = item.nama.toLowerCase().includes(searchKeyword) ||
+                    item.lokasi.toLowerCase().includes(searchKeyword);
+                return matchCategory && matchSearch;
+            });
+            renderCards(filtered);
+        };
+
+        // --- LANGUAGE LOGIC ---
+        const changeLanguage = (lang) => {
+            currentLang = lang;
+            
+            // 1. Update static elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // 2. Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            // 3. Re-render cards (dynamic content)
+            applyFilters();
+        };
+
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+        // Init
+        renderCards(dataset);
+
+    </script>
+</body>
+
+</html>
